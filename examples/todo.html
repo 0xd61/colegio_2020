@@ -1,0 +1,204 @@
+<!doctype html>
+<html class="no-js" lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Colegio Neuland</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+     html {
+        box-sizing: border-box;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Futura,"Trebuchet MS",Arial,sans-serif;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+
+      .wrapper {
+        padding: 20px;
+        max-width: 350px;
+        background: rgba(255,255,255,0.95);
+        box-shadow: 0 0 0 10px rgba(0,0,0,0.1);
+      }
+
+      h1 {
+        text-align: center;
+        margin: 0;
+        font-weight: 200;
+      }
+
+      .items-list {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        list-style: none;
+      }
+
+      .items-list li {
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        padding: 10px 0;
+        font-weight: 100;
+        display: flex;
+      }
+
+      .items-list label {
+        flex: 1;
+        cursor: pointer;
+      }
+
+      .items-list input {
+        display: none;
+      }
+
+      .items-list input:checked + label {
+        text-decoration: line-through;
+        color: #d9d9d9;
+      }
+
+      .items-list input + label:before {
+        content: '⬜️';
+        margin-right: 10px;
+        display:inline-block;
+        text-decoration: none;
+      }
+
+      .items-list input:checked + label:before {
+        content: '✔️';
+        color: #5dc2af;
+      }
+
+      .add-items {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .add-items input {
+        padding: 10px;
+        outline: 0;
+        border: 1px solid #e5e5e5;
+      }
+
+      button {
+          font-size: 100%;
+          font-family: inherit;
+          padding: 0.4rem;
+          margin: 1rem 1rem 0.5rem 1rem;
+          border: 1px solid transparent;
+          background-color: transparent;
+          transition: all 0.2s;
+          font-weight: 100;
+      }
+     button:hover {
+         border-color: #e5e5e5;
+     }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <h1>Meine Hausaufgaben</h1>
+      <form class="add-items">
+        <input type="text" name="todo" placeholder="Was muss getan werden?"/>
+      </form>
+      <ul class="items-list">
+        <li>Lade ToDo's...</li>
+      </ul>
+      <button class="filter-all">Alle</button>
+      <button class="filter-active">Aktiv</button>
+      <button class="filter-done">Fertig</button>
+    </main>
+  </body>
+
+  <script>
+    const addItems = document.querySelector('.add-items');
+    const itemsList = document.querySelector('.items-list');
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+
+    const allButton = document.querySelector('.filter-all');
+    const activeButton = document.querySelector('.filter-active');
+    const doneButton = document.querySelector('.filter-done');
+
+    function addItem(e) {
+      e.preventDefault();
+      const text = e.target.elements["todo"].value;
+      const item = {
+        text,
+        done: false
+      };
+
+      items.push(item);
+      populateList(items, getFilter(), itemsList);
+      localStorage.setItem('items', JSON.stringify(items));
+      this.reset();
+    }
+
+    function populateList(items = [], filterFun, listElement) {
+      listElement.innerHTML = items.map((todo, i) => {
+        if (filterFun(todo))
+          return `
+            <li>
+              <input type="checkbox" data-index=${i} id="item${i}" ${todo.done ? 'checked' : ''} />
+              <label for="item${i}">${todo.text}</label>
+            </li>
+          `;
+        else
+          return "";
+      }).join('');
+    }
+
+    function toggleDone(e) {
+      if (!e.target.matches('input')) return; // skip this unless it's an input
+      const el = e.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done;
+      localStorage.setItem('items', JSON.stringify(items));
+      populateList(items, getFilter(), itemsList);
+    }
+
+    function showAll(e) {
+      window.location.hash = '';
+      populateList(items, getFilter(), itemsList);
+    }
+    function showActive(e) {
+      window.location.hash = 'active';
+      populateList(items, getFilter(), itemsList);
+
+    }
+    function showCompleted(e) {
+      window.location.hash = 'done';
+      populateList(items, getFilter(), itemsList);
+    }
+
+    function getFilter() {
+      const hash = window.location.hash;
+      console.log(hash);
+      switch(hash) {
+        case '#active':
+          return (item) => !item.done;
+          break;
+        case '#done':
+          return (item) => item.done;
+          break;
+        default:
+          return () => true;
+      }
+    }
+
+    function createFilterListener() {
+    }
+
+    addItems.addEventListener('submit', addItem);
+    itemsList.addEventListener('click', toggleDone);
+    allButton.addEventListener('click', showAll);
+    activeButton.addEventListener('click', showActive);
+    doneButton.addEventListener('click', showCompleted);
+    populateList(items, getFilter(), itemsList);
+  </script>
+</html>

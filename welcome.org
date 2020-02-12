@@ -10,6 +10,21 @@
 #+REVEAL_POSTAMBLE: <p> Created by with org </p>
 #+REVEAL_EXTRA_CSS: ./local.css
 
+* Über mich
+** Name
+Daniel Glinka (27)
+** Studium
+Software Entwicklung (B.Eng) in Esslingen (Deutschland)
+** Arbeit
+Cooperativa Multiactiva Neuland Ltda.
+** Links
+- [[https://github.com/kaitsh][Github]]
+- [[https://www.linkedin.com/in/danielglinka/][LinkedIn]]
+- [[mailto:colegio@d-git.de][E-Mail]]
+
+* Über euch?
+* Was erwartet ihr von dem Projekt?
+** [[./assets/welcome_expectations.gif]]
 * Projekt
 #+ATTR_REVEAL: :frag roll-in
 Ziel des Projektes ist es, in Gruppen von ca. 3 Schülern, eine interaktive
