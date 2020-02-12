@@ -1,0 +1,30 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: Welcome
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>Software Engineering</h1><h2>Colegio Neuland</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Projekt
+#+ATTR_REVEAL: :frag roll-in
+Ziel des Projektes ist es, in Gruppen von ca. 3 Schülern, eine interaktive
+Website planen, gestalten und erstellen. Die Zeit kann selbst eingeteilt werden.
+Am Ende präsentiert jede Gruppe ihr Projekt.
+* Agenda
+** Digitale Information und das Internet
+** Methoden zur Planung von Softwareprojekten
+- Projektmanagement
+- Anforderungsanalyse
+- Systemanalyse
+- Systementwurf
+- Systemintegration
+- Systemtest
+** Einführung in die Programmierung
+- Markupsprache HTML
+- Markupsprache CSS
+- Programmiersprache JavaScript
