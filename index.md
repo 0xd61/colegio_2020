@@ -6,4 +6,4 @@ Am Ende präsentiert jede Gruppe ihr Projekt.
 
 ## Table of Contents
 
-- [Welcome](/welcome)
+- [Welcome](/colegio_2020/welcome)
