@@ -1,0 +1,137 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: Internet
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>Projekt Software Entwicklung</h1><h2>Colegio Neuland</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Wichtige Fragen
+** Wie stellen Computer Informationen dar?
+** Wie kommen Informationen von einem Computer zum anderen?
+** Wie kann man ein System erstellen, welche Informationen darstellt/versendet?
+
+* Kommunizieren von Information
+** Aufgabe:
+- Überlegt euch zu 2 eine Frage, die eine binäre Antwort hat (2 Möglichkeiten)
+- Baut etwas, womit ihr die Antwort versenden könnt
+- Minimiert die Fehlerquellen
+  - Partner war nicht sichtbar
+  - Zu laut
+  - Partner hat nicht zugehört/zugesehen
+** Challenge1:
+- Überlegt euch eine Frage, die 4 Antworten haben kann
+- Passt euer Gerät an oder baut ein neues
+** Challenge2:
+- Überlegt euch eine Frage, die 8 Antworten haben kann
+- Passt euer Gerät an oder baut ein neues
+
+* Zahlensysteme
+#+ATTR_REVEAL: :frag roll-in
+- Binär (2)
+- Oktal (8)
+- Dezimal (10)
+- Hexadecimal (16)
+- Base (64)
+** Dezimal (Basis 10)
+ 
+#+BEGIN_SRC
+5498,23 = 5*10³ + 4*10² + 9*10¹ + 8*10⁰ + 2*10⁻¹ + 3*10⁻²
+        = 5*1000 + 4*100 + 9*10 + 8*1 + 2*0.1 + 3*0.01
+
+Tipp:
+10⁻¹ = 1/10¹ = 0.1
+10⁻² = 1/10² = 0.2
+#+END_SRC
+
+** Binär (Basis 2 - 0,1)
+
+#+BEGIN_SRC
+11 0110 = 1*2⁵ + 1*2⁴ + 0*2³ + 1*2² + 1*2¹ + 0*2⁰
+          = 1*32 + 1*16 + 0*8 + 1*4 + 1*2 + 0*1
+          = 54 (10)
+#+END_SRC
+
+*** Zusatz:
+- Eine Stelle hat den Namen Bit
+- 8 Bits heißen Byte
+- Es wird bei Darstellungen meist auf 8 Bits aufgefüllt
+ 
+#+BEGIN_SRC
+  11 0110 -> 0011 0110
+#+END_SRC
+*** Aufgabe:
+- Schreibe die 2er Potenzen bis 2¹²
+- Schreibe die Zahlen von 0-7 in Binär untereinander
+- Schreibe die Zahl 13 in Binär
+- Schreibe die Zahl 141 in Binär
+- Schreibe die Zahl 255 in Binär
+
+Achte darauf, wie viele Bits (Stellen) du benötigst
+
+*** Lösung:
+**** 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096
+**** -
+#+BEGIN_SRC
+000 (0)   100 (4)
+001 (1)   101 (5)
+010 (2)   110 (6)
+011 (3)   111 (7)
+#+END_SRC
+**** 0000 1101
+**** 1000 1101
+**** 1111 1111
+
+** Hexadezimal (Basis 16 0-9,A-F)
+#+BEGIN_SRC
+15 7A = 1*16³ + 5*16² + 7*16¹ + 10*16⁰
+      = 1*4096 + 5*256 + 7*16 + 10*1
+      = 5498 (10)
+
+Umwandlung in Binär:
+1    5    7    A
+0001 0101 0111 1010
+
+#+END_SRC
+
+*** Zusatz:
+- Eine Stelle entspricht 4 Bits
+- Bei Umrechnung in Dezimal, zuvor in Binär umrechnen
+- Hat meist einen Präfix von 0x (0x15)
+
+*** Aufgabe:
+- Schreibe die Zahl 13 in Hexadezimal
+- Schreibe die Zahl 141 in Hexadezimal
+- Schreibe die Zahl 255 in Hexadezimal
+
+*** Lösung:
+**** 0x0D
+**** 0x8D
+**** 0xFF
+
+* Codierungen
+Computer stellen Informationen auf niedrigster Ebene in Binär dar. Für jedes
+Zeichen eines z.B. Texts gibt es entsprechene Codierungen in Binär.
+** ASCII (7 Bit pro Zeichen)
+- [[https://www.asciitable.com/][Ascii Tabelle]]
+- 128 Zeichen
+- A -> 0x41 (100 0001)
+- B -> 0x42 (100 0010)
+- 0 -> 0x30 (011 0000)
+- 1 -> 0x30 (011 0001)
+** Unicode (1-4 Bytes pro Zeichen)
+*** UTF-8
+- [[https://www.utf8-chartable.de/][UTF-8 Tabelle]]
+- $ -> U+0024 -> 0x24 -> 0010 0100
+- 😄 -> U+1F604 -> 0xf0 0x9f 0x98 0x84
+*** UTF-16
+- [[https://www.fileformat.info/info/charset/UTF-16/list.htm][UTF-16 Tabelle]]
+- 😄 -> U+1F604 -> 0xD8 0x3D 0xDE 0x04
+
+* Transfer von Bits
+#+ATTR_REVEAL: :frag roll-in
+-

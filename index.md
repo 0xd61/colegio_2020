@@ -8,3 +8,7 @@ Am Ende präsentiert jede Gruppe ihr Projekt.
 
 - [Overview](/colegio_2020/overview)
 - [Welcome](/colegio_2020/welcome)
+- [Internet](/colegio_2020/internet)
+
+## Project
+- [Requirements](/colegio_2020/project_requirements)
