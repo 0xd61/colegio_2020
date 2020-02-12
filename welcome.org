@@ -43,3 +43,26 @@ Am Ende präsentiert jede Gruppe ihr Projekt.
 - Markupsprache HTML
 - Markupsprache CSS
 - Programmiersprache JavaScript
+* Innovationen
+** Innovation heißt, ein Problem zu erkennen und dieses zu lösen
+** Aufgabe (Rapid Prototyping):
+Wie innovativ sind wir? Präsentieren von Ideen durch Rapid Prototyping.
+#+REVEAL: split
+- Überlege dir 4 Dinge, die dich interessieren
+- Denke nach, welche Auswirkungen Technologie darauf hat
+- Welche Schwierigkeiten gibt es?
+- Wie könnte Technologie diese Schwierigkeiten lösen oder zumindest die Dinge verbessern?
+** Tabelle
+| Interesse | Verbesserungen | Schwierigkeiten |
+|-----------+----------------+-----------------|
+|           |                |                 |
+|           |                |                 |
+|           |                |                 |
+|           |                |                 |
+** Prototyp
+Skizziert eure Idee und stellt sie vor.
+* Ausblick
+- Internet
+- Kommunikation
+- Zahlensystemen (Binär)
+- Codierungen
