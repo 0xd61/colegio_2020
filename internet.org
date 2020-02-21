@@ -30,6 +30,24 @@
 - Überlegt euch eine Frage, die 8 Antworten haben kann
 - Passt euer Gerät an oder baut ein neues
 
+* Wichtige Begriffe
+** Bit
+#+ATTR_REVEAL: :frag roll-in
+Minimale Einheit (1 oder 0)
+B(inary) (Dig)it
+** Bandbreite
+#+ATTR_REVEAL: :frag roll-in
+Übertragungsrate, gemessen mittels einer Bitrate
+** Bitrate
+#+ATTR_REVEAL: :frag roll-in
+Anzahl der Bits, die gesendet werden, pro Zeiteinheit (Sekunde)
+** Latenz
+#+ATTR_REVEAL: :frag roll-in
+Zeit, die ein Bit benötigt, um vom Sender zum Empfänger zu kommen
+** Protokoll
+#+ATTR_REVEAL: :frag roll-in
+Ein Regelwerk (mehrere Regeln), welche den Austausch/Übertragung von Daten
+zwischen Geräten beschreibt
 * Zahlensysteme
 #+ATTR_REVEAL: :frag roll-in
 - Binär (2)
