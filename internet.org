@@ -17,7 +17,7 @@
 
 * Kommunizieren von Information
 ** Aufgabe:
-- Überlegt euch zu 2 eine Frage, die eine binäre Antwort hat (2 Möglichkeiten)
+- Überlegt euch zu 2 eine Frage, die eine binäre Antwort (2 Möglichkeiten) hat
 - Baut etwas, womit ihr die Antwort versenden könnt
 - Minimiert die Fehlerquellen
   - Partner war nicht sichtbar

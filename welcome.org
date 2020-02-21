@@ -27,7 +27,7 @@ Cooperativa Multiactiva Neuland Ltda.
 ** [[./assets/welcome_expectations.gif]]
 * Projekt
 #+ATTR_REVEAL: :frag roll-in
-Ziel des Projektes ist es, in Gruppen von ca. 3 Schülern, eine interaktive
+Ziel des Projektes ist es, in Gruppen von ca. 2 Schülern, eine interaktive
 Website planen, gestalten und erstellen. Die Zeit kann selbst eingeteilt werden.
 Am Ende präsentiert jede Gruppe ihr Projekt.
 * Agenda
