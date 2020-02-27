@@ -15,10 +15,10 @@ Am Ende präsentiert jede Gruppe ihr Projekt.
 - [Requirements](/colegio_2020/project_requirements)
 
 ## Tutorial Links
-- [CodeCademy HTML Anfänger](https://www.codecademy.com/learn/learn-html)
-- [CodeCademy CSS Anfänger](https://www.codecademy.com/learn/learn-css)
-- [CodeCademy Javascript Anfänger](https://www.codecademy.com/learn/introduction-to-javascript)
-- [FreeCodeCamp HTML + CSS Fortgeschritten](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/)
-- [FreeCodeCamp Javascript Fortgeschritten](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/)
-- [WesBos Fortgeschritten](https://javascript30.com/)
-- [CSS Fortgeschritten](https://css-tricks.com/)
+- [CodeCademy HTML _Anfänger_](https://www.codecademy.com/learn/learn-html)
+- [CodeCademy CSS _Anfänger_](https://www.codecademy.com/learn/learn-css)
+- [CodeCademy Javascript _Anfänger_](https://www.codecademy.com/learn/introduction-to-javascript)
+- [FreeCodeCamp HTML + CSS _Fortgeschritten_](https://www.freecodecamp.org/learn/responsive-web-design/basic-html-and-html5/)
+- [FreeCodeCamp Javascript _Fortgeschritten_](https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/)
+- [WesBos _Fortgeschritten_](https://javascript30.com/)
+- [CSS _Fortgeschritten_](https://css-tricks.com/)
