@@ -9,3 +9,29 @@
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
 #+REVEAL_POSTAMBLE: <p> Created by with org </p>
 #+REVEAL_EXTRA_CSS: ./local.css
+
+* Ziel
+[[./assets/project_requirements_cartoon.jpg]]
+
+* Vorgehen
+** Ermittlung, Analyse
+*** User Stories
+**** Als <Person> kann ich <Fähigkeit>, damit ich <Vorteil>.
+**** Als /User/ kann ich /Aufgaben einer Liste hinzufügen/, damit ich /einen Überblick über meine Aufgaben habe/.
+**** Als /Programmierer/ kann ich /auf Debug Information zugreifen/, damit ich /Fehler besser finden kann/.
+
+*** /Funktionale Anforderungen/
+"Das Produkt soll den Saldo eines Kontos zu einem Stichtag berechnen."
+
+*** /Nichtfunktionale Anforderungen/
+"Das Produkt soll dem Anwender innerhalb von einer Sekunde antworten."
+
+** Strukturierung, Abstimmung
+- Prüfen, ob Anforderungen abhängig von einander sind
+- Ordnen der Anforderungen nach Kategorie
+
+** Prüfung, Bewertung
+- Korrekt
+- Machbar
+- Notwendig
+- Priorität/Wichtigkeit
