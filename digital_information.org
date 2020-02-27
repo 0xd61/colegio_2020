@@ -1,0 +1,76 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: Digitale Information
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>Projekt Software Entwicklung</h1><h2>Colegio Neuland</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Rückblick
+** Zahlensysteme
+Welche Zahlensysteme gibt es?
+** Binär
+*** Flippy Do
+[[./assets/digital_information_flippydo.png]]
+*** Was ist die Zahl 1101 in Dezimal?
+** Text Code
+Was ist ASCII?
+* Bytes
+** Was ist ein Byte?
+1 Byte ist ein Bitstring bestehend aus 8 Bits. Bytes sind eine Standardgröße bei
+modernen Computern
+** Größentabelle (Kilo, Mega, Giga, Tera)
+| Name          | Größe                              | Beispiel                            |
+|---------------+------------------------------------+-------------------------------------|
+| Kilobyte (kB) | ca. 1 000 Bytes (10³)              | Email (2KB), 5 Seiten Text (100 KB) |
+| Megabyte (MB) | ca. 1 000 000 Bytes (10⁶)          | Foto (2-5 MB), MP3 (1 MB/min)       |
+| Gigabyte (GB) | ca. 1 000 000 000 Bytes (10⁹)      | RAM (4-16 GB), DVD (4,7 GB)         |
+| Terabyte (TB) | ca. 1 000 000 000 000 Bytes (10¹²) | HDD (4 TB)                          |
+
+** Größentabelle (Kibi, Mebi, Gibi, Tebi)
+| Name           | Größe                             | Unterschied zu Dezimal |
+|----------------+-----------------------------------+------------------------|
+| Kibibyte (KiB) | ca. 1 024 Bytes (2¹⁰)             | 2,4%                   |
+| Mebibyte (MiB) | ca. 1 048 576 Bytes (2²⁰)         | 4,9%                   |
+| Gibibyte (GiB) | ca. 1 073 741 824 Bytes (2³⁰)     | 7,4%                   |
+| Tebibyte (TiB) | ca. 1 099 511 627 776 Bytes (2⁴⁰) | 10,0%                  |
+
+** Größentabelle (Sonstige)
+| Name            | Funktion                                  | Beispiel  |
+|-----------------+-------------------------------------------+-----------|
+| GigaHertz (GHz) | Frequenz (1 Milliarde Zyklen pro Sekunde) | Prozessor |
+| Megabit (Mb)    | Oftmals im Zusammenhang mit Zeit (Mb/s)   | Netzwerk  |
+
+** Umrechnung
+#+BEGIN_SRC
+MiB -> MB: 1MiB = 2²⁰/10⁶ = 1,048576 MB
+MB -> MiB: 1MB = 10⁶/2²⁰ = 0,95367 MiB
+#+END_SRC
+** Aufgaben
+*** Alice hat 600 MiB Daten. Bob hat 2000 MiB Daten. Werden die Daten auf einen 4 GB USB-Stick passen?
+*** Du hast viele Bilder mit jeweils 5 MiB. Wie viele davon passen auf einen 16 GB USB-Stick?
+*** Wenn du eine Internetverbindung mit 1 Millionen Bits pro Sekunde hast. Wie lange dauert es, 1 TiB herunter zu laden?
+*** Lösung:
+- Ja
+- 3200
+- 101.8066 Tage
+
+** Aufgabe Dateigrößen
+| Datei Typ                 | Größe in Nr. von Seiten, Minuten, Zeichen | Größe in Bytes, KB, MB, etc. |
+|---------------------------+-------------------------------------------+------------------------------|
+| Textdatei .txt            |                                           |                              |
+| Word Datei .doc/.docx     |                                           |                              |
+| .jpg Bild                 |                                           |                              |
+| animiertes .gif Bild      |                                           |                              |
+| .pdf Datei                |                                           |                              |
+| Audio Datei .mp3          |                                           |                              |
+| Film Datei .mov oder .mp4 |                                           |                              |
+
+* Ausblick
+- Transfer von Bits (Netzwerke)
+- Datei Komprimierung
+- Darstellung von Bildern

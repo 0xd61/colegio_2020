@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Digitale Information</title>
+<meta name="author" content="(Daniel Glinka)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Colegio Neuland">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Projekt Software Entwicklung</h1><h2>Colegio Neuland</h2><p>by Daniel Glinka</p>
+</section>
+
+<section>
+<section id="slide-org3f1f53c">
+<h2 id="org3f1f53c">Rückblick</h2>
+<div class="outline-text-2" id="text-org3f1f53c">
+</div>
+</section>
+<section id="slide-orgece839f">
+<h3 id="orgece839f">Zahlensysteme</h3>
+<p>
+Welche Zahlensysteme gibt es?
+</p>
+</section>
+<section id="slide-org30c4137">
+<h3 id="org30c4137">Binär</h3>
+<div class="outline-text-3" id="text-org30c4137">
+</div>
+</section>
+<section id="slide-orga5e89a5">
+<h4 id="orga5e89a5">Flippy Do</h4>
+
+<div class="figure">
+<p><img src="./assets/digital_information_flippydo.png" alt="digital_information_flippydo.png" />
+</p>
+</div>
+</section>
+<section id="slide-org5d0e1b5">
+<h4 id="org5d0e1b5">Was ist die Zahl 1101 in Dezimal?</h4>
+</section>
+<section id="slide-org26e6cb0">
+<h3 id="org26e6cb0">Text Code</h3>
+<p>
+Was ist ASCII?
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org012a54a">
+<h2 id="org012a54a">Bytes</h2>
+<div class="outline-text-2" id="text-org012a54a">
+</div>
+</section>
+<section id="slide-orgb45d806">
+<h3 id="orgb45d806">Was ist ein Byte?</h3>
+<p>
+1 Byte ist ein Bitstring bestehend aus 8 Bits. Bytes sind eine Standardgröße bei
+modernen Computern
+</p>
+</section>
+<section id="slide-orgd4880b6">
+<h3 id="orgd4880b6">Größentabelle (Kilo, Mega, Giga, Tera)</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Größe</th>
+<th scope="col" class="org-left">Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Kilobyte (kB)</td>
+<td class="org-left">ca. 1 000 Bytes (10³)</td>
+<td class="org-left">Email (2KB), 5 Seiten Text (100 KB)</td>
+</tr>
+
+<tr>
+<td class="org-left">Megabyte (MB)</td>
+<td class="org-left">ca. 1 000 000 Bytes (10⁶)</td>
+<td class="org-left">Foto (2-5 MB), MP3 (1 MB/min)</td>
+</tr>
+
+<tr>
+<td class="org-left">Gigabyte (GB)</td>
+<td class="org-left">ca. 1 000 000 000 Bytes (10⁹)</td>
+<td class="org-left">RAM (4-16 GB), DVD (4,7 GB)</td>
+</tr>
+
+<tr>
+<td class="org-left">Terabyte (TB)</td>
+<td class="org-left">ca. 1 000 000 000 000 Bytes (10¹²)</td>
+<td class="org-left">HDD (4 TB)</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orga96e052">
+<h3 id="orga96e052">Größentabelle (Kibi, Mebi, Gibi, Tebi)</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Größe</th>
+<th scope="col" class="org-left">Unterschied zu Dezimal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Kibibyte (KiB)</td>
+<td class="org-left">ca. 1 024 Bytes (2¹⁰)</td>
+<td class="org-left">2,4%</td>
+</tr>
+
+<tr>
+<td class="org-left">Mebibyte (MiB)</td>
+<td class="org-left">ca. 1 048 576 Bytes (2²⁰)</td>
+<td class="org-left">4,9%</td>
+</tr>
+
+<tr>
+<td class="org-left">Gibibyte (GiB)</td>
+<td class="org-left">ca. 1 073 741 824 Bytes (2³⁰)</td>
+<td class="org-left">7,4%</td>
+</tr>
+
+<tr>
+<td class="org-left">Tebibyte (TiB)</td>
+<td class="org-left">ca. 1 099 511 627 776 Bytes (2⁴⁰)</td>
+<td class="org-left">10,0%</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org28a03c2">
+<h3 id="org28a03c2">Größentabelle (Sonstige)</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Funktion</th>
+<th scope="col" class="org-left">Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">GigaHertz (GHz)</td>
+<td class="org-left">Frequenz (1 Milliarde Zyklen pro Sekunde)</td>
+<td class="org-left">Prozessor</td>
+</tr>
+
+<tr>
+<td class="org-left">Megabit (Mb)</td>
+<td class="org-left">Oftmals im Zusammenhang mit Zeit (Mb/s)</td>
+<td class="org-left">Netzwerk</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orgf6285f5">
+<h3 id="orgf6285f5">Umrechnung</h3>
+<pre  class="example">
+MiB -&gt; MB: 1MiB = 2²⁰/10⁶ = 1,048576 MB
+MB -&gt; MiB: 1MB = 10⁶/2²⁰ = 0,95367 MiB
+</pre>
+</section>
+<section id="slide-org766beca">
+<h3 id="org766beca">Aufgaben</h3>
+<div class="outline-text-3" id="text-org766beca">
+</div>
+</section>
+<section id="slide-org7dad23e">
+<h4 id="org7dad23e">Alice hat 600 MB Daten. Bob hat 2000 MB Daten. Werden die Daten auf einen 4 GB USB-Stick passen?</h4>
+</section>
+<section id="slide-orgd271e17">
+<h4 id="orgd271e17">Du hast viele Bilder mit jeweils 5 MB. Wie viele davon passen auf einen 16 GB USB-Stick?</h4>
+</section>
+<section id="slide-org44c09f0">
+<h4 id="org44c09f0">Wenn du eine Internetverbindung mit 1 Millionen Bits pro Sekunde hast. Wie lange dauert es, 1 TB herunter zu laden?</h4>
+</section>
+<section id="slide-orgd3098ad">
+<h4 id="orgd3098ad">Lösung:</h4>
+<ul>
+<li>Ja</li>
+<li>3200</li>
+
+</ul>
+
+</section>
+<section id="slide-orgf4353dc">
+<h3 id="orgf4353dc">Aufgabe Dateigrößen</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Datei Typ</th>
+<th scope="col" class="org-left">Größe in Nr. von Seiten, Minuten, Zeichen</th>
+<th scope="col" class="org-left">Größe in Bytes, KB, MB, etc.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Textdatei .txt</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Word Datei .doc/.docx</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">.jpg Bild</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">animiertes .gif Bild</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">.pdf Datei</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Audio Datei .mp3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Film Datei .mov oder .mp4</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+</section>
+<section>
+<section id="slide-org7aa7b64">
+<h2 id="org7aa7b64">Ausblick</h2>
+<ul>
+<li>Rechnen mit Bits</li>
+<li>Transfer von Bits (Netzwerke)</li>
+<li>Datei Komprimierung</li>
+<li>Darstellung von Bildern</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<p> Created by with org </p>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

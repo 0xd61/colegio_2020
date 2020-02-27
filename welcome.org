@@ -62,7 +62,6 @@ Wie innovativ sind wir? Präsentieren von Ideen durch Rapid Prototyping.
 ** Prototyp
 Skizziert eure Idee und stellt sie vor.
 * Ausblick
-- Internet
 - Kommunikation
-- Zahlensystemen (Binär)
+- Zahlensysteme (Binär)
 - Codierungen

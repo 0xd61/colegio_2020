@@ -1,6 +1,6 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 
-#+Title: Internet
+#+Title: Grundlagen
 #+Author: Daniel Glinka
 
 #+OPTIONS: num:nil toc:nil
@@ -63,7 +63,7 @@ zwischen Geräten beschreibt
 
 Tipp:
 10⁻¹ = 1/10¹ = 0.1
-10⁻² = 1/10² = 0.2
+10⁻² = 1/10² = 0.01
 #+END_SRC
 
 ** Binär (Basis 2 - 0,1)
@@ -150,6 +150,3 @@ Zeichen eines z.B. Texts gibt es entsprechene Codierungen in Binär.
 - [[https://www.fileformat.info/info/charset/UTF-16/list.htm][UTF-16 Tabelle]]
 - 😄 -> U+1F604 -> 0xD8 0x3D 0xDE 0x04
 
-* Transfer von Bits
-#+ATTR_REVEAL: :frag roll-in
--
