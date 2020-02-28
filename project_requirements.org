@@ -35,3 +35,8 @@
 - Machbar
 - Notwendig
 - Priorität/Wichtigkeit
+* Aufgabe
+- Überlege welche Personen (Stakeholder) an deiner Applikation beteiligt sind
+- Erstelle min. 15 User Stories für die verschiedenen Personen
+- Strukturiere und prüfe/bewerte die einzelnen Stories
+- Erstelle einen Entwicklungs-Log (Dokumentation) und dokumentiere die Stories
