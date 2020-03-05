@@ -34,10 +34,10 @@ modernen Computern
 ** Größentabelle (Kibi, Mebi, Gibi, Tebi)
 | Name           | Größe                             | Unterschied zu Dezimal |
 |----------------+-----------------------------------+------------------------|
-| Kibibyte (KiB) | ca. 1 024 Bytes (2¹⁰)             | 2,4%                   |
-| Mebibyte (MiB) | ca. 1 048 576 Bytes (2²⁰)         | 4,9%                   |
-| Gibibyte (GiB) | ca. 1 073 741 824 Bytes (2³⁰)     | 7,4%                   |
-| Tebibyte (TiB) | ca. 1 099 511 627 776 Bytes (2⁴⁰) | 10,0%                  |
+| Kibibyte (KiB) | 1 024 Bytes (2¹⁰)                 | 2,4%                   |
+| Mebibyte (MiB) | 1 048 576 Bytes (2²⁰)             | 4,9%                   |
+| Gibibyte (GiB) | 1 073 741 824 Bytes (2³⁰)         | 7,4%                   |
+| Tebibyte (TiB) | 1 099 511 627 776 Bytes (2⁴⁰)     | 10,0%                  |
 
 ** Größentabelle (Sonstige)
 | Name            | Funktion                                  | Beispiel  |
