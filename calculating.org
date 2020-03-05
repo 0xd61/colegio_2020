@@ -1,0 +1,209 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: Rechnen mit Bits
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>Software Engineering</h1><h2>Colegio Neuland</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Wie rechnet ein Computer?
+Er verknüpft Bitstrings miteinander. Dieses Vorgehen nennt man Boolsche
+Algebra.
+
+* Boolsche Algebra
+In der Regel entspricht der Wert 0 False (Falsch) und 1 True (Wahr)
+
+** NOT Verknüpfung
+Schreibweise: ¬x oder !x oder NOT x
+
+[[./assets/calculation_not_gate.png]]
+
+| *NOT* |   |
+|-------+---|
+| *1*   | 0 |
+| *0*   | 1 |
+
+** AND Verknüpfung
+Schreibweise: x ∧ y oder x & y oder x AND y
+
+[[./assets/calculation_and_gate.png]]
+
+| *AND* | *0* | *1* |
+|-------+-----+-----|
+| *0*   |   0 |   0 |
+| *1*   |   0 |   1 |
+
+
+** OR Verknüpfung
+Schreibweise: x ∨ y oder x | y oder x OR y
+
+[[./assets/calculation_or_gate.png]]
+
+| *OR* | *0* | *1* |
+|------+-----+-----|
+| *0*  |   0 |   1 |
+| *1*  |   1 |   1 |
+
+** XOR Verknüpfung
+Schreibweise: x ⊕ y
+
+| *XOR* | *0* | *1* |
+|-------+-----+-----|
+| *0*   |   0 |   1 |
+| *1*   |   1 |   0 |
+
+** Verknüpfungen können beliebig miteinander kombiniert werden
+*** (x ∨ y) ∧ ¬x
+
+| *x* | *y* | *x ∨ y* | *¬x* | *(x ∨ y) ∧ ¬x* |
+|-----+-----+---------+------+----------------|
+| *0* | *0* |       0 |    1 |              1 |
+| *1* | *0* |       1 |    0 |              1 |
+| *0* | *1* |       1 |    1 |              1 |
+| *1* | *1* |       0 |    0 |              0 |
+
+*** Achtung Klammern: ¬(x ∧ y) != ¬x ∧ ¬y
+
+*** ¬(x ∧ y)
+
+| *x* | *y* | *x ∧ y* | *¬(x ∧ y)* |
+|-----+-----+---------+------------|
+| *0* | *0* |       0 |          1 |
+| *1* | *0* |       0 |          1 |
+| *0* | *1* |       0 |          1 |
+| *1* | *1* |       1 |          0 |
+
+*** ¬x ∧ ¬y
+
+| *x* | *y* | *¬x* | *¬y* | *¬x ∧ ¬y* |
+|-----+-----+------+------+-----------|
+| *0* | *0* |    1 |    1 |         1 |
+| *1* | *0* |    0 |    1 |         0 |
+| *0* | *1* |    1 |    0 |         0 |
+| *1* | *1* |    0 |    0 |         0 |
+
+*** Tricks
+**** x ∨ 1 = 1
+**** x ∧ 1 = x
+**** DeMorgan's Gesetz
+- ¬(x ∧ y) = ¬x ∨ ¬y
+- x ∧ y = ¬(¬x ∨ ¬y)
+- ¬(x ∨ y) = ¬x ∧ ¬y
+- x ∨ y = ¬(¬x ∧ ¬y)
+
+** Übungen
+- (x ∨ ¬y) ∧ (¬x ∨ ¬y)
+- (x ∨ y) ∨ ¬y
+- ¬x ∧ (y ∨ x ∧ z)
+** Lösungen
+- ¬y
+- 1
+- ¬x ∧ y
+
+* Bitweise Operatoren
+** NOT
+Genutzt um eine Zahl zu inkrementieren, wenn man nur Bits bis zur nächsten 0 verknüpft
+
+#+BEGIN_SRC
+NOT 0111  (Dezimal 7)
+  = 1000  (Dezimal 8)
+
+NOT 1011  (Dezimal 11)
+  = 1100  (Dezimal 12)
+
+NOT 10101011  (Dezimal 171)
+  = 01010100  (Dezimal 84)
+#+END_SRC
+** AND
+Genutzt um zu überprüfen, ob ein Bit gesetzt ist
+#+BEGIN_SRC
+    0101
+AND 0100
+  = 0100
+
+    0010
+AND 0011
+  = 0010
+#+END_SRC
+** OR
+Genutzt um Bits zu setzen
+#+BEGIN_SRC
+   0101
+OR 0011
+ = 0111
+
+   0010
+OR 1000
+ = 1010
+#+END_SRC
+
+
+** XOR
+Genutzt um Bits zu swappen (tauschen)
+
+#+BEGIN_SRC
+    0101
+XOR 0011
+  = 0110
+
+    0010
+XOR 1010
+  = 1000
+#+END_SRC
+
+** Bitshift Links <<
+Genutzt um Zahlen mit 2 zu multiplizieren
+#+BEGIN_SRC
+0110 (Dezimal 6) LEFT-SHIFT +1 Bit
+= 1100 (Dezimal 12)
+
+1001 (Dezimal 9) LEFT-SHIFT +2 Bits
+= 0010 0100 (Dezimal 36)
+#+END_SRC
+
+** Bitshift Rechts >>
+Genutzt um Zahlen durch 2 zu dividieren
+#+BEGIN_SRC
+0110 (Dezimal 6) RIGHT-SHIFT -1 Bit
+= 0011 (Dezimal 3)
+
+1001 (Dezimal 9) LEFT-SHIFT +2 Bits
+= 0010 (Dezimal 2)
+#+END_SRC
+
+** /Addieren (OR mit Übertrag)/
+Wird eine 1 mit einer 1 verknüpft, haben wir einen Überlauf. Um diesen zu
+berücksichtigen schreiben wir 0 und merken uns 1. Diese 1 wird mit der nächsten
+Stelle verknüfpt.
+
+#+BEGIN_SRC
+   0101 (Dezimal 5)
+OR 0011 (Dezimal 3)
+   111   Übertrag
+ = 1000 (Dezimal 8)
+
+   0010 (Dezimal 2)
+OR 1000 (Dezimal 8)
+         Übertrag
+ = 1010 (Dezimal 10)
+#+END_SRC
+
+** /Subtrahieren (OR mit Übertrag)/
+Wie addieren, jedoch wird die Zahl, die subtrahiert wird, zuvor einmal mit NOT
+verknüpft. Es muss von Anfang an eine 1 als Übertrag genutzt werden
+
+#+BEGIN_SRC
+   0101 (Dezimal 5)
+OR 1100 (Dezimal !3)
+     11  Übertrag
+ = 0010 (Dezimal 2)
+
+   1000 (Dezimal 8)
+OR 1101 (Dezimal !2)
+     11  Übertrag
+ = 0110 (Dezimal 6)
+#+END_SRC

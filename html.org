@@ -1,0 +1,109 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: Anforderungsanalyse
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>Software Engineering</h1><h2>Colegio Neuland</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Colegio Neuland">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Was ist HTML
+- Markupsprache (HyperText Markup Language)
+- Interpretiert vom Browser
+- Beschreibt die Struktur einer Website
+- Nutzt Tags (~<tag></tag>~)
+- [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element][Liste der verfügbaren Tags für HTML5]]
+
+** Beispiel
+#+BEGIN_SRC html
+<h1>Erste Überschrift. Vielleicht der Titel</h1>
+
+<p>Ein Text Paragraph. Vielleicht ein Text, den wir dem User anzeigen wollen.
+Die Länge ist dabei völlig egal.</p>
+
+<ol>
+  <li>Nummer 1 auf der Liste</li>
+  <li>Nummer 2</li>
+  <li>Das dritte Element</li>
+</ol>
+#+END_SRC
+
+* Geschichte
+- 1989 stellt Tim Berners-Lee ein Hytertext System für das Internet vor und
+  programmiert den ersten Browser
+- 1991 wurde das erste Dokument veröffentlich in dem HTML Tags beschrieben
+  wurden
+- Die Erste Idee war ein Wiki mit Dokumenten, welche über Links (Hyperlinks)
+  miteinander verbunden waren
+- Aktuell nutzen wir HTML5 (2014)
+
+* Grundaufbau
+ - Jede HTML Seite hat einen Grundaufbau aus bestimmten Tags
+  #+BEGIN_SRC html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Beispiel Seite</title>
+      </head>
+      <body>
+      </body>
+    </html>
+  #+END_SRC
+** Head
+- Metainformation
+- Aussehen (CSS)
+- Links zu externen Daten (Script-/CSS-Dateien)
+
+Beispiel Elemente: ~link~, ~meta~, ~title~, und ~style~
+** Body
+- Seiteninhalte
+- Javascript (optional)
+
+Beispiel Elemente: ~h1~, ~p~, ~img~, ~script~, ~a~,...
+
+* Übungen
+** Erstelle eine HTML Seite
+- Erstelle mit einem Texteditor eine neue ~beispiel.html~ Datei
+- Erstelle die HTML Grundstruktur in dieser Datei. Und öffne diese Datei in
+  Google Chrome oder Firefox
+- Ändere den Title der Seite im ~title~-Tag. Achte darauf, was sich bei der
+  Website im Browser geändert hat
+#+REVEAL: split:t
+- Erstelle nun im Body einen Steckbrief über dich. Dieser sollte eine
+  Überschrift (~h1~), eine Unterüberschrift (~h2~), ein Bild (~img~), eine Liste
+  (~ul~, ~li~) mit Hobbies, einem Link (~a~) zu deiner Lieblingswebsite und
+  einem kurzen Text (~p~) über dich enthalten.
+- Informationen über die Tags findest du [[https://developer.mozilla.org/en-US/docs/Web/HTML/Element][hier]]
+
+* Tags
+- Tags bestehen meist aus 2 Teilen. dem Opening Tag ~<tagname>~ und dem Closing
+Tag ~</tagname>~. Zwischen den beiden Teilen steht in der Regel der Text
+- Manche Tags sind ein Opening und Closing Tag in einem: ~<tagname />~
+- Ein Tag erstellt und beschreibt ein HTML Element auf der Website
+** Nested Tags
+- Tags kann man beliebig verschachteln. Man muss lediglich darauf achten, dass das
+Kind Tag nicht vor dem Eltern Tag geschlossen wird.
+- Die Verschachtelung beschreibt die Struktur der Website.
+
+#+REVEAL: split:t
+[[./assets/html_nested.jpg]]
+** Inline Tags
+- Elemente auf gleicher Ebene (nicht verschachtelt) werden in der Regel
+  in einer neuen Zeile angezeigt. Eine Ausnahme dazu sind Inline Elemente.
+- /Inline/ bedeutet, dass der Textfluss vom Element nicht unterbrochen wird.
+- Diese Elemente beeinflussen die Struktur/Aussehen des Textes
+- Beispiel Elemente: ~a~, ~br~, ~strong~, ~span~
+
+** Div und Span
+Sollten nur genutzt werden, wenn kein anderes Tag passend ist.
+
+*** Div
+- Allgemeiner Container zur Strukturierung der Website
+- Ohne CSS hat ein ~div~ keinen Einfluss auf den Inhalt oder das Aussehen
+
+*** Span
+- Allgemeiner Inline Container zur Strukturierung von Text
+- Meist genutzt im Zusammenhang mit CSS (wie bei ~div~)

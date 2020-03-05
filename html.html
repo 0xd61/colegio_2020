@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Anforderungsanalyse</title>
+<meta name="author" content="(Daniel Glinka)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Colegio Neuland">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Software Engineering</h1><h2>Colegio Neuland</h2><p>by Daniel Glinka</p>
+</section>
+
+<section>
+<section id="slide-orga051de9">
+<h2 id="orga051de9">Was ist HTML</h2>
+<ul>
+<li>Markupsprache (HyperText Markup Language)</li>
+<li>Interpretiert vom Browser</li>
+<li>Beschreibt die Struktur einer Website</li>
+<li>Nutzt Tags (<code>&lt;tag&gt;&lt;/tag&gt;</code>)</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Liste der verfügbaren Tags für HTML5</a></li>
+
+</ul>
+
+</section>
+<section id="slide-orgda50613">
+<h3 id="orgda50613">Beispiel</h3>
+<div class="org-src-container">
+
+<pre  class="src src-html"><code trim>&lt;<span style="color: #c678dd;">h1</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Erste &#220;berschrift. Vielleicht der Titel</span>&lt;/<span style="color: #c678dd;">h1</span>&gt;
+
+&lt;<span style="color: #c678dd;">p</span>&gt;Ein Text Paragraph. Vielleicht ein Text, den wir dem User anzeigen wollen.
+Die L&#228;nge ist dabei v&#246;llig egal.&lt;/<span style="color: #c678dd;">p</span>&gt;
+
+&lt;<span style="color: #c678dd;">ol</span>&gt;
+  &lt;<span style="color: #c678dd;">li</span>&gt;Nummer 1 auf der Liste&lt;/<span style="color: #c678dd;">li</span>&gt;
+  &lt;<span style="color: #c678dd;">li</span>&gt;Nummer 2&lt;/<span style="color: #c678dd;">li</span>&gt;
+  &lt;<span style="color: #c678dd;">li</span>&gt;Das dritte Element&lt;/<span style="color: #c678dd;">li</span>&gt;
+&lt;/<span style="color: #c678dd;">ol</span>&gt;
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orge2ff323">
+<h2 id="orge2ff323">Geschichte</h2>
+<ul>
+<li>1989 stellt Tim Berners-Lee ein Hytertext System für das Internet vor und
+programmiert den ersten Browser</li>
+<li>1991 wurde das erste Dokument veröffentlich in dem HTML Tags beschrieben
+wurden</li>
+<li>Die Erste Idee war ein Wiki mit Dokumenten, welche über Links (Hyperlinks)
+miteinander verbunden waren</li>
+<li>Aktuell nutzen wir HTML5 (2014)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org335ddf3">
+<h2 id="org335ddf3">Grundaufbau</h2>
+<ul>
+<li><p>
+Jede HTML Seite hat einen Grundaufbau aus bestimmten Tags
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html"><code trim>    <span style="color: #98be65;">&lt;!DOCTYPE html&gt;</span>
+    &lt;<span style="color: #c678dd;">html</span>&gt;
+      &lt;<span style="color: #c678dd;">head</span>&gt;
+        &lt;<span style="color: #c678dd;">title</span>&gt;<span style="font-weight: bold; text-decoration: underline;">Beispiel Seite</span>&lt;/<span style="color: #c678dd;">title</span>&gt;
+      &lt;/<span style="color: #c678dd;">head</span>&gt;
+      &lt;<span style="color: #c678dd;">body</span>&gt;
+      &lt;/<span style="color: #c678dd;">body</span>&gt;
+    &lt;/<span style="color: #c678dd;">html</span>&gt;
+</code></pre>
+</div></li>
+
+</ul>
+</section>
+<section id="slide-orgd48126d">
+<h3 id="orgd48126d">Head</h3>
+<ul>
+<li>Metainformation</li>
+<li>Aussehen (CSS)</li>
+<li>Links zu externen Daten (Script-/CSS-Dateien)</li>
+
+</ul>
+
+<p>
+Beispiel Elemente: <code>link</code>, <code>meta</code>, <code>title</code>, und <code>style</code>
+</p>
+</section>
+<section id="slide-org0dce860">
+<h3 id="org0dce860">Body</h3>
+<ul>
+<li>Seiteninhalte</li>
+<li>Javascript (optional)</li>
+
+</ul>
+
+<p>
+Beispiel Elemente: <code>h1</code>, <code>p</code>, <code>img</code>, <code>script</code>, <code>a</code>,&#x2026;
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgf61a802">
+<h2 id="orgf61a802">Übungen</h2>
+<div class="outline-text-2" id="text-orgf61a802">
+</div>
+</section>
+<section id="slide-orgda2278a">
+<h3 id="orgda2278a">Erstelle eine HTML Seite</h3>
+<ul>
+<li>Erstelle mit einem Texteditor eine neue <code>beispiel.html</code> Datei</li>
+<li>Erstelle die HTML Grundstruktur in dieser Datei. Und öffne diese Datei in
+Google Chrome oder Firefox</li>
+<li>Ändere den Title der Seite im <code>title</code>-Tag. Achte darauf, was sich bei der
+Website im Browser geändert hat</li>
+
+</ul>
+</section>
+<section id="slide-orgda2278a-split">
+
+<h3>Erstelle eine HTML Seite</h3>
+<ul>
+<li>Erstelle nun im Body einen Steckbrief über dich. Dieser sollte eine
+Überschrift (<code>h1</code>), eine Unterüberschrift (<code>h2</code>), ein Bild (<code>img</code>), eine Liste
+(<code>ul</code>, <code>li</code>) mit Hobbies, einem Link (<code>a</code>) zu deiner Lieblingswebsite und
+einem kurzen Text (<code>p</code>) über dich enthalten.</li>
+<li>Informationen über die Tags findest du <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">hier</a></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org358f618">
+<h2 id="org358f618">Tags</h2>
+<ul>
+<li>Tags bestehen meist aus 2 Teilen. dem Opening Tag <code>&lt;tagname&gt;</code> und dem Closing</li>
+
+</ul>
+<p>
+Tag <code>&lt;/tagname&gt;</code>. Zwischen den beiden Teilen steht in der Regel der Text
+</p>
+<ul>
+<li>Manche Tags sind ein Opening und Closing Tag in einem: <code>&lt;tagname /&gt;</code></li>
+<li>Ein Tag erstellt und beschreibt ein HTML Element auf der Website</li>
+
+</ul>
+</section>
+<section id="slide-orgab62124">
+<h3 id="orgab62124">Nested Tags</h3>
+<ul>
+<li>Tags kann man beliebig verschachteln. Man muss lediglich darauf achten, dass das</li>
+
+</ul>
+<p>
+Kind Tag nicht vor dem Eltern Tag geschlossen wird.
+</p>
+<ul>
+<li>Die Verschachtelung beschreibt die Struktur der Website.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgab62124-split">
+
+<h3>Nested Tags</h3>
+
+<div class="figure">
+<p><img src="./assets/html_nested.jpg" alt="html_nested.jpg" />
+</p>
+</div>
+</section>
+<section id="slide-org7a2e5f0">
+<h3 id="org7a2e5f0">Inline Tags</h3>
+<ul>
+<li>Elemente auf gleicher Ebene (nicht verschachtelt) werden in der Regel
+in einer neuen Zeile angezeigt. Eine Ausnahme dazu sind Inline Elemente.</li>
+<li><i>Inline</i> bedeutet, dass der Textfluss vom Element nicht unterbrochen wird.</li>
+<li>Diese Elemente beeinflussen die Struktur/Aussehen des Textes</li>
+<li>Beispiel Elemente: <code>a</code>, <code>br</code>, <code>strong</code>, <code>span</code></li>
+
+</ul>
+
+</section>
+<section id="slide-orgbcbd618">
+<h3 id="orgbcbd618">Div und Span</h3>
+<p>
+Sollten nur genutzt werden, wenn kein anderes Tag passend ist.
+</p>
+
+</section>
+<section id="slide-org822a463">
+<h4 id="org822a463">Div</h4>
+<ul>
+<li>Allgemeiner Container zur Strukturierung der Website</li>
+<li>Ohne CSS hat ein <code>div</code> keinen Einfluss auf den Inhalt oder das Aussehen</li>
+
+</ul>
+
+</section>
+<section id="slide-orga8fa899">
+<h4 id="orga8fa899">Span</h4>
+<ul>
+<li>Allgemeiner Inline Container zur Strukturierung von Text</li>
+<li>Meist genutzt im Zusammenhang mit CSS (wie bei <code>div</code>)</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<p> Created by with org </p>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

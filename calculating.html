@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Rechnen mit Bits</title>
+<meta name="author" content="(Daniel Glinka)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Colegio Neuland">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Software Engineering</h1><h2>Colegio Neuland</h2><p>by Daniel Glinka</p>
+</section>
+
+<section>
+<section id="slide-org5cbb2b6">
+<h2 id="org5cbb2b6">Wie rechnet ein Computer?</h2>
+<p>
+Er verknüpft Bitstrings miteinander. Dieses Vorgehen nennt man Boolsche
+Algebra.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcdcb9ca">
+<h2 id="orgcdcb9ca">Boolsche Algebra</h2>
+<p>
+In der Regel entspricht der Wert 0 False (Falsch) und 1 True (Wahr)
+</p>
+
+</section>
+<section id="slide-org740957a">
+<h3 id="org740957a">NOT Verknüpfung</h3>
+<p>
+Schreibweise: ¬x oder !x oder NOT x
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/calculation_not_gate.png" alt="calculation_not_gate.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>NOT</b></th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org790278a">
+<h3 id="org790278a">AND Verknüpfung</h3>
+<p>
+Schreibweise: x ∧ y oder x &amp; y oder x AND y
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/calculation_and_gate.png" alt="calculation_and_gate.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>AND</b></th>
+<th scope="col" class="org-right"><b>0</b></th>
+<th scope="col" class="org-right"><b>1</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+<section id="slide-org9a8fee0">
+<h3 id="org9a8fee0">OR Verknüpfung</h3>
+<p>
+Schreibweise: x ∨ y oder x | y oder x OR y
+</p>
+
+
+<div class="figure">
+<p><img src="./assets/calculation_or_gate.png" alt="calculation_or_gate.png" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>OR</b></th>
+<th scope="col" class="org-right"><b>0</b></th>
+<th scope="col" class="org-right"><b>1</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orgc6a30e8">
+<h3 id="orgc6a30e8">XOR Verknüpfung</h3>
+<p>
+Schreibweise: x ⊕ y
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>XOR</b></th>
+<th scope="col" class="org-right"><b>0</b></th>
+<th scope="col" class="org-right"><b>1</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org7f52d26">
+<h3 id="org7f52d26">Verknüpfungen können beliebig miteinander kombiniert werden</h3>
+<div class="outline-text-3" id="text-org7f52d26">
+</div>
+</section>
+<section id="slide-org52dd440">
+<h4 id="org52dd440">(x ∨ y) ∧ ¬x</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>x</b></th>
+<th scope="col" class="org-left"><b>y</b></th>
+<th scope="col" class="org-right"><b>x ∨ y</b></th>
+<th scope="col" class="org-right"><b>¬x</b></th>
+<th scope="col" class="org-right"><b>(x ∨ y) ∧ ¬x</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-org4d2a9f3">
+<h4 id="org4d2a9f3">Achtung Klammern: ¬(x ∧ y) != ¬x ∧ ¬y</h4>
+
+</section>
+<section id="slide-org6026619">
+<h4 id="org6026619">¬(x ∧ y)</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>x</b></th>
+<th scope="col" class="org-left"><b>y</b></th>
+<th scope="col" class="org-right"><b>x ∧ y</b></th>
+<th scope="col" class="org-right"><b>¬(x ∧ y)</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orgfff1dd7">
+<h4 id="orgfff1dd7">¬x ∧ ¬y</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><b>x</b></th>
+<th scope="col" class="org-left"><b>y</b></th>
+<th scope="col" class="org-right"><b>¬x</b></th>
+<th scope="col" class="org-right"><b>¬y</b></th>
+<th scope="col" class="org-right"><b>¬x ∧ ¬y</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>0</b></td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>0</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>1</b></td>
+<td class="org-left"><b>1</b></td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="slide-orgd41078d">
+<h4 id="orgd41078d">Tricks</h4>
+<div class="outline-text-4" id="text-orgd41078d">
+</div>
+<ul class="org-ul">
+<li><a id="orgeb6c515"></a>x ∨ 1 = 1<br /></li>
+<li><a id="orgd2e627f"></a>x ∧ 1 = x<br /></li>
+<li><a id="orgb10cf9e"></a>DeMorgan&rsquo;s Gesetz<br />
+<ul>
+<li>¬(x ∧ y) = ¬x ∨ ¬y</li>
+<li>x ∧ y = ¬(¬x ∨ ¬y)</li>
+<li>¬(x ∨ y) = ¬x ∧ ¬y</li>
+<li>x ∨ y = ¬(¬x ∧ ¬y)</li>
+
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="slide-orgf6fc645">
+<h3 id="orgf6fc645">Übungen</h3>
+<ul>
+<li>(x ∨ ¬y) ∧ (¬x ∨ ¬y)</li>
+<li>(x ∨ y) ∨ ¬y</li>
+<li>¬x ∧ (y ∨ x ∧ z)</li>
+
+</ul>
+</section>
+<section id="slide-org4556540">
+<h3 id="org4556540">Lösungen</h3>
+<ul>
+<li>¬y</li>
+<li>1</li>
+<li>¬x ∧ y</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-org089c039">
+<h2 id="org089c039">Bitweise Operatoren</h2>
+<div class="outline-text-2" id="text-org089c039">
+</div>
+</section>
+<section id="slide-orga646a13">
+<h3 id="orga646a13">NOT</h3>
+<p>
+Genutzt um eine Zahl zu inkrementieren, wenn man nur Bits bis zur nächsten 0 verknüpft
+</p>
+
+<pre  class="example">
+NOT 0111  (Dezimal 7)
+  = 1000  (Dezimal 8)
+
+NOT 1011  (Dezimal 11)
+  = 1100  (Dezimal 12)
+
+NOT 10101011  (Dezimal 171)
+  = 01010100  (Dezimal 84)
+</pre>
+</section>
+<section id="slide-org99b3af9">
+<h3 id="org99b3af9">AND</h3>
+<p>
+Genutzt um zu überprüfen, ob ein Bit gesetzt ist
+</p>
+<pre  class="example">
+    0101
+AND 0100
+  = 0100
+
+    0010
+AND 0011
+  = 0010
+</pre>
+</section>
+<section id="slide-orged9301e">
+<h3 id="orged9301e">OR</h3>
+<p>
+Genutzt um Bits zu setzen
+</p>
+<pre  class="example">
+   0101
+OR 0011
+ = 0111
+
+   0010
+OR 1000
+ = 1010
+</pre>
+
+
+</section>
+<section id="slide-orgea65272">
+<h3 id="orgea65272">XOR</h3>
+<p>
+Genutzt um Bits zu swappen (tauschen)
+</p>
+
+<pre  class="example">
+    0101
+XOR 0011
+  = 0110
+
+    0010
+XOR 1010
+  = 1000
+</pre>
+
+</section>
+<section id="slide-orgdd00613">
+<h3 id="orgdd00613">Bitshift Links &lt;&lt;</h3>
+<p>
+Genutzt um Zahlen mit 2 zu multiplizieren
+</p>
+<pre  class="example">
+0110 (Dezimal 6) LEFT-SHIFT +1 Bit
+= 1100 (Dezimal 12)
+
+1001 (Dezimal 9) LEFT-SHIFT +2 Bits
+= 0010 0100 (Dezimal 36)
+</pre>
+
+</section>
+<section id="slide-org3b345b0">
+<h3 id="org3b345b0">Bitshift Rechts &gt;&gt;</h3>
+<p>
+Genutzt um Zahlen durch 2 zu dividieren
+</p>
+<pre  class="example">
+0110 (Dezimal 6) RIGHT-SHIFT -1 Bit
+= 0011 (Dezimal 3)
+
+1001 (Dezimal 9) LEFT-SHIFT +2 Bits
+= 0010 (Dezimal 2)
+</pre>
+
+</section>
+<section id="slide-org86ac789">
+<h3 id="org86ac789"><i>Addieren (OR mit Übertrag)</i></h3>
+<p>
+Wird eine 1 mit einer 1 verknüpft, haben wir einen Überlauf. Um diesen zu
+berücksichtigen schreiben wir 0 und merken uns 1. Diese 1 wird mit der nächsten
+Stelle verknüfpt.
+</p>
+
+<pre  class="example">
+   0101 (Dezimal 5)
+OR 0011 (Dezimal 3)
+   111   Übertrag
+ = 1000 (Dezimal 8)
+
+   0010 (Dezimal 2)
+OR 1000 (Dezimal 8)
+         Übertrag
+ = 1010 (Dezimal 10)
+</pre>
+
+</section>
+<section id="slide-orgd541d69">
+<h3 id="orgd541d69"><i>Subtrahieren (OR mit Übertrag)</i></h3>
+<p>
+Wie addieren, jedoch wird die Zahl, die subtrahiert wird, zuvor einmal mit NOT
+verknüpft. Es muss von Anfang an eine 1 als Übertrag genutzt werden
+</p>
+
+<pre  class="example">
+   0101 (Dezimal 5)
+OR 1100 (Dezimal !3)
+     11  Übertrag
+ = 0010 (Dezimal 2)
+
+   1000 (Dezimal 8)
+OR 1101 (Dezimal !2)
+     11  Übertrag
+ = 0110 (Dezimal 6)
+</pre>
+</section>
+</section>
+</div>
+</div>
+<p> Created by with org </p>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
