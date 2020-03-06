@@ -207,3 +207,7 @@ OR 1101 (Dezimal !2)
      11  Übertrag
  = 0110 (Dezimal 6)
 #+END_SRC
+
+* Ausblick
+- Komprimieren von Daten
+- Encoding von Bildern
