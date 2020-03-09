@@ -1,0 +1,432 @@
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+
+#+Title: LaTeX Grundlagen
+#+Author: Daniel Glinka
+
+#+OPTIONS: num:nil toc:nil
+#+REVEAL_THEME: black
+#+REVEAL_TITLE_SLIDE: <h1>LaTeX Grundlagen</h1><h2>IFD</h2><p>by %a</p>
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="IFD">
+#+REVEAL_POSTAMBLE: <p> Created by with org </p>
+#+REVEAL_EXTRA_CSS: ./local.css
+
+* Erstes Dokument
+
+
+#+BEGIN_SRC latex
+\documentclass{article}
+\begin{document}
+Erstes Dokument! Dies ist ein einfaches Beispiel, ohne zusätzliche
+Parameter oder Pakete.
+\end{document}
+#+END_SRC
+
+** Command Statement Reihenfolge
+#+BEGIN_SRC latex
+% Richtig:
+
+\begin{document}
+  \begin{environment1}
+    \begin{environment2}
+    \end{environment2}
+  \end{environment1}
+\end{document}
+
+% Falsch:
+
+\begin{document}
+  \begin{environment1}
+    \begin{environment2}
+  \end{environment1}
+    \end{environment2}
+\end{document}
+
+% Falsch:
+
+\begin{document}
+  \begin{environment1}
+\end{document}
+  \end{environment1}
+#+END_SRC
+
+** Präambel
+Alles vor dem Command ~\document{begin}~ ist die Präambel. Die Präambel gibt die
+Struktur und das Aussehen des Dokumentes vor.
+
+#+BEGIN_SRC latex
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+#+END_SRC
+
+** Dokument Arten
+*** Standard
+**** article
+**** minimal
+**** report
+**** book
+**** letter
+**** beamer
+*** [[https://komascript.de/][KOMA-Script]] (neuere Versionen)
+**** scrbook
+**** scrreprt
+**** scrartcl
+**** scrlttr2
+
+*** [[https://ctan.org/topic/class][Liste aller Arten...]]
+** Titel
+
+#+BEGIN_SRC latex
+\documentclass[12pt, a4paper]{article}
+% UTF-8 Encoding, dmait wir öäü schreiben können
+\usepackage[utf8]{inputenc}
+% Paket zur Unterstützung der deutschen Sprache (Worttrennung etc.)
+\usepackage[ngerman]{babel}
+
+\title{Mein erstes Dokument}
+\date{2020-03-09}
+\author{Daniel Glinka}
+
+\begin{document}
+  \maketitle
+  \newpage
+
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+\end{document}
+#+END_SRC
+
+** Seitenzahlen
+
+#+BEGIN_SRC latex
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\title{Mein erstes Dokument}
+\date{2020-03-09}
+\author{Daniel Glinka}
+
+\begin{document}
+  \pagenumbering{roman}
+  \maketitle
+  \newpage
+  \pagenumbering{arabic}
+
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+\end{document}
+#+END_SRC
+
+* Sections
+Sections dienen der Strukturierung des Dokumentes mti Überschriften und
+Unterüberschriften.
+
+#+BEGIN_SRC latex
+\documentclass[12pt, a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\title{Mein erstes Dokument}
+\date{2020-03-09}
+\author{Daniel Glinka}
+
+\begin{document}
+  \maketitle
+  \pagenumbering{roman}
+  \tableofcontents
+  \newpage
+  \pagenumbering{arabic}
+
+  \chapter{Erstes Kapitel}
+
+  \section{Überschrift 1}
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+
+  \subsection{Unterüberschrift 1}
+  Die Strukturierung ist sehr einfach.
+  \subsubsection{Unterunterüberschrift 1}
+  Per Default gibt es 3 Struktur Level.
+
+  \paragraph{Paragraph}
+  Hier noch mehr Text.
+
+  \subparagraph{Subparagraph}
+  Uuund noch mehr Text.
+
+
+\end{document}
+#+END_SRC
+
+* Pakete
+Pakete sind zusätzliche Funktionen, und Befehle, die einem Dokument in der
+Präambel hinzugefügt werden können.
+
+** Installation
+ Meistens werden die Pakete bei der Installation von LaTeX (TeX Live/MiKTeX) schon mit
+ installiert. Alternativ können sie über den LaTeX Installer heruntergeladen werden.
+
+** Verwendung
+
+#+BEGIN_SRC latex
+\documentclass{article}
+
+\usepackage{PACKAGENAME}
+
+\begin{document}
+...
+#+END_SRC
+
+** Beispiel (ohne Paket)
+
+#+BEGIN_SRC latex
+\documentclass{article}
+
+\begin{document}
+  \begin{equation}
+    f(x) = x^2
+  \end{equation}
+\end{document}
+#+END_SRC
+
+** Beispiel (mit Paket)
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+  % die Funktion mit * ist vom Paket amsmath
+  \begin{equation*}
+    f(x) = x^2
+  \end{equation*}
+\end{document}
+#+END_SRC
+
+
+* Text Elemente
+
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\begin{document}
+Mit einfachen Funktionen kann man Worte \textbf{fett}, \textit{kursiv} oder \underline{unterstrichen} schreiben. Zwei Backslashes bedeuten, neue Zeile.\\ Alternativ kann man aber auch ein newline
+\newline
+nehmen.
+\newpage
+Mit einem newpage erstellt man einen Seitenumbruch.
+\end{document}
+#+END_SRC
+
+* Bilder
+** Ohne Zusatzinfo
+
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\begin{document}
+  \includegraphics{beispiel.jpg}
+\end{document}
+#+END_SRC
+
+** Mit Zusatzinfo
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% Benötigt für Bilder
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\begin{document}
+  \begin{figure}[h]
+      \centering
+      \includegraphics[width=0.25\textwidth]{beispiel.jpg}
+      \caption{Tolles Bild!}
+      \label{fig:beispiel}
+  \end{figure}
+
+  Wir sehen, dass Abb. \ref{fig:beispiel} ein ganz tolles Bild ist.
+  Man findet das Bild auf Seite \pageref{fig:beispiel}.
+\end{document}
+#+END_SRC
+
+** Positionierung
+- h (here) - möglichst an dieser Position
+- H (HERE!) - genau an dieser Stelle (mit dem Paket ~\usepackage{float}~)
+- t (top) - möglichst am Seitenanfang
+- b (bottom) - möglichst am Seitenende
+- p (page) - auf einer extra Seite
+- ! (überschreiben) - überschreibt andere Einstellungen
+
+* Listen
+** Ungeordnet
+#+BEGIN_SRC latex
+\begin{itemize}
+  \item Jeder Eintrag bekommt einen Punkt.
+  \item Es ist egal, wie viele Einträge es gibt.
+\end{itemize}
+#+END_SRC
+
+** Geordnet
+#+BEGIN_SRC latex
+\begin{enumerate}
+  \item Jeder Eintrag bekommt keine Zahl.
+  \item Auch hier gibt es keine Grenze für Einträge.
+\end{enumerate}
+#+END_SRC
+
+* Mathe
+** Inline Mode
+
+#+BEGIN_SRC latex
+Wenn eine Formel im Text stehen soll, schreibt man sie
+einfach zwischen Dollar Zeichen $5+x=14$.
+#+END_SRC
+
+** Display Mode
+
+#+BEGIN_SRC latex
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+Für abgesetze Formeln nimmt man equation oder equation*.
+Wenn man ein bestimmtes "alignment" moechte, sollte man align* nutzen.
+Dies ist ebenfalls im Paket amsmath enthalten.
+
+\begin{equation*}
+  1 + 2 = 3
+\end{equation*}
+
+\begin{equation*}
+  1 = 3 - 2
+\end{equation*}
+
+\begin{align*}
+  1 + 2 &= 3\\
+  1 &= 3 - 2
+\end{align*}
+
+\begin{align*}
+  f(x) &= x^2\\
+  g(x) &= \frac{1}{\sqrt{x}}\\
+  F(x) &= \int^a_b \frac{1}{3}x^3
+\end{align*}
+
+\end{document}
+#+END_SRC
+
+* BibTeX (Literaturverzeichnis)
+
+** main.tex
+#+BEGIN_SRC latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+%Literaturverzeichnis
+\usepackage[backend=biber,
+    %style=alphabetic,
+    style=numeric,
+    bibencoding=utf8
+]{biblatex}
+\addbibresource{sample.bib}
+
+\begin{document}
+\section{Erster Absatz}
+In diesem Dokument sind Literaturverweise. Die drei Verweise sind:
+Das \textit{\LaTeX\ Companion} Buch \cite{latexcompanion},
+Ein Paper von Einstein \cite{einstein},
+und die Website von Donald Knuth \cite{knuthwebsite}.
+Die \LaTeX-bezogenen Referenzen sind \cite{latexcompanion,knuthwebsite}.
+
+\printbibliography
+
+\end{document}
+#+END_SRC
+
+** sample.bib
+#+BEGIN_SRC latex
+% Einträge kann man von Google kopieren ;-)
+
+@article{einstein,
+  author =       "Albert Einstein",
+  title =        "{Zur Elektrodynamik bewegter Körper}. ({German})
+                 [{On} the electrodynamics of moving bodies]",
+  journal =      "Annalen der Physik",
+  volume =       "322",
+  number =       "10",
+  pages =        "891--921",
+  year =         "1905",
+  DOI =          "http://dx.doi.org/10.1002/andp.19053221004"
+}
+
+@book{latexcompanion,
+    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
+    title     = "The \LaTeX\ Companion",
+    year      = "1993",
+    publisher = "Addison-Wesley",
+    address   = "Reading, Massachusetts"
+}
+
+@misc{knuthwebsite,
+    author    = "Donald Knuth",
+    title     = "Knuth: Computers and Typesetting",
+    url       = "http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html"
+}
+#+END_SRC
+
+* Fußnoten
+#+BEGIN_SRC latex
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+% nur für url Command benötigt. \footnore benötigt kein Paket
+\usepackage{hyperref}
+
+\begin{document}
+Das ist Beispiel Text\footnote{\label{footnote} Das ist toll!}.
+Hier ist noch mehr Text\footnote{\label{wiki-url} \url{https://de.wikipedia.org/wiki/Text}}
+im Bezug auf \ref{footnote}. \ref{wiki-url} kann man sogar anklicken! :)
+\end{document}
+#+END_SRC
+
+* Tabellen
+** Nutze am Besten einen [[https://tablesgenerator.com/][Tabellen Generator]]
+** Import von einfachen Excel Tabellen (.csv) in LaTeX
+*** Excel Tabelle als CSV speichen
+*** CSV mit Package [[http://linorg.usp.br/CTAN/macros/latex/contrib/csvsimple/csvsimple.pdf][csvsimple]] importieren
+#+BEGIN_SRC latex
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{array,booktabs}
+\usepackage{csvsimple}
+
+\begin{document}
+\csvautobooktabular[before reading=\inputencoding{latin1},
+                    after reading=\inputencoding{utf8}]{example.csv}
+\end{document}
+#+END_SRC
+
+* Weitere Pakete
+- [[http://linorg.usp.br/CTAN/macros/latex/contrib/xsim/doc/xsim_manual.pdf][XSIM]] - Erstellen von Arbeitsblättern
+- [[http://linorg.usp.br/CTAN/graphics/pgf/base/doc/pgfmanual.pdf][TikZ]] - Zeichnen von Bildern
+- [[http://linorg.usp.br/CTAN/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf][pgfplots]] - Erstellen von Graphen und Diagrammen
+
+* Macros
+#+BEGIN_SRC latex
+\documentclass[a4paper]{article}
+\usepackage{color} % für den command \color benötigt
+
+% Command Name: meinCommandName
+% Parameter: 2 (#1 = text, #2 = farbe)
+\newcommand*{\meinCommandName}[2]{\color{#2}\textbf{\textit{\underline{#1}}}}
+
+\begin{document}
+Hier führe ich \meinCommandName{mein cooles Macro aus}{blue}.
+\end{document}
+#+END_SRC

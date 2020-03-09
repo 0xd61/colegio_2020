@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>LaTeX Grundlagen</title>
+<meta name="author" content="(Daniel Glinka)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/css/theme/black.css" id="theme"/>
+
+<link rel="stylesheet" href="./local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="IFD">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>LaTeX Grundlagen</h1><h2>IFD</h2><p>by Daniel Glinka</p>
+</section>
+
+<section>
+<section id="slide-orge538ef9">
+<h2 id="orge538ef9">Erstes Dokument</h2>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+Erstes Dokument! Dies ist ein einfaches Beispiel, ohne zus&#228;tzliche
+Parameter oder Pakete.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org203fc92">
+<h3 id="org203fc92">Command Statement Reihenfolge</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #5B6268;">% </span><span style="color: #5B6268;">Richtig:</span>
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">environment1</span>}
+    <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">environment2</span>}
+    <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">environment2</span>}
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">environment1</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Falsch:</span>
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">environment1</span>}
+    <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">environment2</span>}
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">environment1</span>}
+    <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">environment2</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Falsch:</span>
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">environment1</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">environment1</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org1ad12f5">
+<h3 id="org1ad12f5">Präambel</h3>
+<p>
+Alles vor dem Command <code>\document{begin}</code> ist die Präambel. Die Präambel gibt die
+Struktur und das Aussehen des Dokumentes vor.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[12pt, a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org5164e9d">
+<h3 id="org5164e9d">Dokument Arten</h3>
+<div class="outline-text-3" id="text-org5164e9d">
+</div>
+</section>
+<section id="slide-org2cb9d82">
+<h4 id="org2cb9d82">Standard</h4>
+<div class="outline-text-4" id="text-org2cb9d82">
+</div>
+<ul class="org-ul">
+<li><a id="org205d9db"></a>article<br /></li>
+<li><a id="orgc46ea33"></a>minimal<br /></li>
+<li><a id="orga81f658"></a>report<br /></li>
+<li><a id="org4b695ac"></a>book<br /></li>
+<li><a id="org4ef5a32"></a>letter<br /></li>
+<li><a id="org7134c11"></a>beamer<br /></li>
+</ul>
+</section>
+<section id="slide-org4ca0d15">
+<h4 id="org4ca0d15"><a href="https://komascript.de/">KOMA-Script</a> (neuere Versionen)</h4>
+<div class="outline-text-4" id="text-org4ca0d15">
+</div>
+<ul class="org-ul">
+<li><a id="org1ecfc27"></a>scrbook<br /></li>
+<li><a id="org94f0e53"></a>scrreprt<br /></li>
+<li><a id="org907c4d1"></a>scrartcl<br /></li>
+<li><a id="org13f97e4"></a>scrlttr2<br /></li>
+</ul>
+
+</section>
+<section id="slide-org7d0539e">
+<h4 id="org7d0539e"><a href="https://ctan.org/topic/class">Liste aller Arten&#x2026;</a></h4>
+</section>
+<section id="slide-org4253566">
+<h3 id="org4253566">Titel</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[12pt, a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">UTF-8 Encoding, dmait wir &#246;&#228;&#252; schreiben k&#246;nnen</span>
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Paket zur Unterst&#252;tzung der deutschen Sprache (Worttrennung etc.)</span>
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+
+<span style="color: #51afef;">\title</span>{<span style="color: #c678dd;">Mein erstes Dokument</span>}
+<span style="color: #51afef;">\date</span>{2020-03-09}
+<span style="color: #51afef;">\author</span>{Daniel Glinka}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\maketitle</span>
+  <span style="color: #ECBE7B;">\newpage</span>
+
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org8e54e22">
+<h3 id="org8e54e22">Seitenzahlen</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[12pt, a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+
+<span style="color: #51afef;">\title</span>{<span style="color: #c678dd;">Mein erstes Dokument</span>}
+<span style="color: #51afef;">\date</span>{2020-03-09}
+<span style="color: #51afef;">\author</span>{Daniel Glinka}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\pagenumbering</span>{roman}
+  <span style="color: #51afef;">\maketitle</span>
+  <span style="color: #ECBE7B;">\newpage</span>
+  <span style="color: #51afef;">\pagenumbering</span>{arabic}
+
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgeed2797">
+<h2 id="orgeed2797">Sections</h2>
+<p>
+Sections dienen der Strukturierung des Dokumentes mti Überschriften und
+Unterüberschriften.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[12pt, a4paper]{<span style="color: #c678dd;">book</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+
+<span style="color: #51afef;">\title</span>{<span style="color: #c678dd;">Mein erstes Dokument</span>}
+<span style="color: #51afef;">\date</span>{2020-03-09}
+<span style="color: #51afef;">\author</span>{Daniel Glinka}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\maketitle</span>
+  <span style="color: #51afef;">\pagenumbering</span>{roman}
+  <span style="color: #51afef;">\tableofcontents</span>
+  <span style="color: #ECBE7B;">\newpage</span>
+  <span style="color: #51afef;">\pagenumbering</span>{arabic}
+
+  <span style="color: #51afef;">\chapter</span>{<span style="color: #c678dd;">Erstes Kapitel</span>}
+
+  <span style="color: #51afef;">\section</span>{<span style="color: #c678dd;">&#220;berschrift 1</span>}
+  Erstes Dokument! Dies ist ein einfaches Beispiel.
+
+  <span style="color: #51afef;">\subsection</span>{<span style="color: #c678dd;">Unter&#252;berschrift 1</span>}
+  Die Strukturierung ist sehr einfach.
+  <span style="color: #51afef;">\subsubsection</span>{<span style="color: #c678dd;">Unterunter&#252;berschrift 1</span>}
+  Per Default gibt es 3 Struktur Level.
+
+  <span style="color: #51afef;">\paragraph</span>{<span style="color: #c678dd;">Paragraph</span>}
+  Hier noch mehr Text.
+
+  <span style="color: #51afef;">\subparagraph</span>{<span style="color: #c678dd;">Subparagraph</span>}
+  Uuund noch mehr Text.
+
+
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org72cd002">
+<h2 id="org72cd002">Pakete</h2>
+<p>
+Pakete sind zusätzliche Funktionen, und Befehle, die einem Dokument in der
+Präambel hinzugefügt werden können.
+</p>
+
+</section>
+<section id="slide-orgd2a5520">
+<h3 id="orgd2a5520">Installation</h3>
+<p>
+Meistens werden die Pakete bei der Installation von LaTeX (TeX Live/MiKTeX) schon mit
+installiert. Alternativ können sie über den LaTeX Installer heruntergeladen werden.
+</p>
+
+</section>
+<section id="slide-org6658288">
+<h3 id="org6658288">Verwendung</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">PACKAGENAME</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+...
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org9727307">
+<h3 id="org9727307">Beispiel (ohne Paket)</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">equation</span>}
+    f(x) = x^2
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">equation</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgfdc7adf">
+<h3 id="orgfdc7adf">Beispiel (mit Paket)</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">amsmath</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #5B6268;">% die Funktion mit * ist vom Paket amsmath</span>
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">equation*</span>}
+    f(x) = x^2
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">equation*</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orga5d506a">
+<h2 id="orga5d506a">Text Elemente</h2>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+Mit einfachen Funktionen kann man Worte <span style="color: #51afef;">\textbf</span>{<span style="font-weight: bold;">fett</span>}, <span style="color: #51afef;">\textit</span>{<span style="font-style: italic;">kursiv</span>} oder <span style="color: #51afef;">\underline</span>{unterstrichen} schreiben. Zwei Backslashes bedeuten, neue Zeile.<span style="color: #ECBE7B;">\\</span> Alternativ kann man aber auch ein newline
+<span style="color: #ECBE7B;">\newline</span>
+nehmen.
+<span style="color: #ECBE7B;">\newpage</span>
+Mit einem newpage erstellt man einen Seitenumbruch.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org784528b">
+<h2 id="org784528b">Bilder</h2>
+<div class="outline-text-2" id="text-org784528b">
+</div>
+</section>
+<section id="slide-org8a7e256">
+<h3 id="org8a7e256">Ohne Zusatzinfo</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">graphicx</span>}
+<span style="color: #51afef;">\graphicspath</span>{ {images/} }
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\includegraphics</span>{<span style="color: #c678dd;">beispiel.jpg</span>}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org59f948a">
+<h3 id="org59f948a">Mit Zusatzinfo</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Ben&#246;tigt f&#252;r Bilder</span>
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">graphicx</span>}
+<span style="color: #51afef;">\graphicspath</span>{ {images/} }
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+  <span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">figure</span>}[h]
+      <span style="color: #51afef;">\centering</span>
+      <span style="color: #51afef;">\includegraphics</span>[width=0.25<span style="color: #51afef;">\textwidth</span>]{<span style="color: #c678dd;">beispiel.jpg</span>}
+      <span style="color: #51afef;">\caption</span>{Tolles Bild!}
+      <span style="color: #51afef;">\label</span>{<span style="color: #a9a1e1;">fig:beispiel</span>}
+  <span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">figure</span>}
+
+  Wir sehen, dass Abb. <span style="color: #51afef;">\ref</span>{<span style="color: #a9a1e1;">fig:beispiel</span>} ein ganz tolles Bild ist.
+  Man findet das Bild auf Seite <span style="color: #51afef;">\pageref</span>{<span style="color: #a9a1e1;">fig:beispiel</span>}.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgc874e8f">
+<h3 id="orgc874e8f">Positionierung</h3>
+<ul>
+<li>h (here) - möglichst an dieser Position</li>
+<li>H (HERE!) - genau an dieser Stelle (mit dem Paket <code>\usepackage{float}</code>)</li>
+<li>t (top) - möglichst am Seitenanfang</li>
+<li>b (bottom) - möglichst am Seitenende</li>
+<li>p (page) - auf einer extra Seite</li>
+<li>! (überschreiben) - überschreibt andere Einstellungen</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orga4ec8c7">
+<h2 id="orga4ec8c7">Listen</h2>
+<div class="outline-text-2" id="text-orga4ec8c7">
+</div>
+</section>
+<section id="slide-orge3cd37f">
+<h3 id="orge3cd37f">Ungeordnet</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">itemize</span>}
+  <span style="color: #51afef;">\item</span> Jeder Eintrag bekommt einen Punkt.
+  <span style="color: #51afef;">\item</span> Es ist egal, wie viele Eintr&#228;ge es gibt.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">itemize</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org10af129">
+<h3 id="org10af129">Geordnet</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">enumerate</span>}
+  <span style="color: #51afef;">\item</span> Jeder Eintrag bekommt keine Zahl.
+  <span style="color: #51afef;">\item</span> Auch hier gibt es keine Grenze f&#252;r Eintr&#228;ge.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">enumerate</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org52d3301">
+<h2 id="org52d3301">Mathe</h2>
+<div class="outline-text-2" id="text-org52d3301">
+</div>
+</section>
+<section id="slide-org9557444">
+<h3 id="org9557444">Inline Mode</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim>Wenn eine Formel im Text stehen soll, schreibt man sie
+einfach zwischen Dollar Zeichen <span style="color: #98be65;">$5+x=14$</span>.
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orge57275b">
+<h3 id="orge57275b">Display Mode</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">amsmath</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+F&#252;r abgesetze Formeln nimmt man equation oder equation*.
+Wenn man ein bestimmtes "alignment" moechte, sollte man align* nutzen.
+Dies ist ebenfalls im Paket amsmath enthalten.
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">equation*</span>}
+  1 + 2 = 3
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">equation*</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">equation*</span>}
+  1 = 3 - 2
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">equation*</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">align*</span>}
+  1 + 2 &amp;= 3<span style="color: #ECBE7B;">\\</span>
+  1 &amp;= 3 - 2
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">align*</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">align*</span>}
+  f(x) &amp;= x^2<span style="color: #ECBE7B;">\\</span>
+  g(x) &amp;= <span style="color: #51afef;">\frac</span>{1}{<span style="color: #51afef;">\sqrt</span>{x}}<span style="color: #ECBE7B;">\\</span>
+  F(x) &amp;= <span style="color: #51afef;">\int</span>^a_b <span style="color: #51afef;">\frac</span>{1}{3}x^3
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">align*</span>}
+
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgc99109b">
+<h2 id="orgc99109b">BibTeX (Literaturverzeichnis)</h2>
+<div class="outline-text-2" id="text-orgc99109b">
+</div>
+</section>
+<section id="slide-org1fbbb8c">
+<h3 id="org1fbbb8c">main.tex</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+<span style="color: #51afef;">\usepackage</span>[ngerman]{<span style="color: #c678dd;">babel</span>}
+<span style="color: #5B6268;">%</span><span style="color: #5B6268;">Literaturverzeichnis</span>
+<span style="color: #51afef;">\usepackage</span>[backend=biber,
+    <span style="color: #5B6268;">%style=alphabetic,</span>
+    style=numeric,
+    bibencoding=utf8
+]{<span style="color: #c678dd;">biblatex</span>}
+<span style="color: #51afef;">\addbibresource</span>{sample.bib}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+<span style="color: #51afef;">\section</span>{<span style="color: #c678dd;">Erster Absatz</span>}
+In diesem Dokument sind Literaturverweise. Die drei Verweise sind:
+Das <span style="color: #51afef;">\textit</span>{<span style="color: #51afef; font-style: italic;">\LaTeX</span><span style="font-style: italic;">\ Companion</span>} Buch <span style="color: #51afef;">\cite</span>{<span style="color: #a9a1e1;">latexcompanion</span>},
+Ein Paper von Einstein <span style="color: #51afef;">\cite</span>{<span style="color: #a9a1e1;">einstein</span>},
+und die Website von Donald Knuth <span style="color: #51afef;">\cite</span>{<span style="color: #a9a1e1;">knuthwebsite</span>}.
+Die <span style="color: #51afef;">\LaTeX</span>-bezogenen Referenzen sind <span style="color: #51afef;">\cite</span>{<span style="color: #a9a1e1;">latexcompanion,knuthwebsite</span>}.
+
+<span style="color: #51afef;">\printbibliography</span>
+
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+<section id="slide-org155ef75">
+<h3 id="org155ef75">sample.bib</h3>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #5B6268;">% </span><span style="color: #5B6268;">Eintr&#228;ge kann man von Google kopieren ;-)</span>
+
+@article{einstein,
+  author =       "Albert Einstein",
+  title =        "{Zur Elektrodynamik bewegter K&#246;rper}. ({German})
+                 [{On} the electrodynamics of moving bodies]",
+  journal =      "Annalen der Physik",
+  volume =       "322",
+  number =       "10",
+  pages =        "891--921",
+  year =         "1905",
+  DOI =          "http://dx.doi.org/10.1002/andp.19053221004"
+}
+
+@book{latexcompanion,
+    author    = "Michel Goossens and Frank Mittelbach and Alexander Samarin",
+    title     = "The <span style="color: #51afef;">\LaTeX</span>\ Companion",
+    year      = "1993",
+    publisher = "Addison-Wesley",
+    address   = "Reading, Massachusetts"
+}
+
+@misc{knuthwebsite,
+    author    = "Donald Knuth",
+    title     = "Knuth: Computers and Typesetting",
+    url       = "http://www-cs-faculty.stanford.edu/<span style="color: #51afef;">\~</span>{}uno/abcde.html"
+}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org55b8ef1">
+<h2 id="org55b8ef1">Fußnoten</h2>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">nur f&#252;r url Command ben&#246;tigt. \footnore ben&#246;tigt kein Paket</span>
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">hyperref</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+Das ist Beispiel Text<span style="color: #51afef;">\footnote</span>{<span style="color: #51afef;">\label</span>{<span style="color: #a9a1e1;">footnote</span>} Das ist toll!}.
+Hier ist noch mehr Text<span style="color: #51afef;">\footnote</span>{<span style="color: #51afef;">\label</span>{<span style="color: #a9a1e1;">wiki-url</span>} <span style="color: #51afef;">\url</span>{https://de.wikipedia.org/wiki/Text}}
+im Bezug auf <span style="color: #51afef;">\ref</span>{<span style="color: #a9a1e1;">footnote</span>}. <span style="color: #51afef;">\ref</span>{<span style="color: #a9a1e1;">wiki-url</span>} kann man sogar anklicken! :)
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org8d2f440">
+<h2 id="org8d2f440">Tabellen</h2>
+<div class="outline-text-2" id="text-org8d2f440">
+</div>
+</section>
+<section id="slide-org4dce835">
+<h3 id="org4dce835">Nutze am Besten einen <a href="https://tablesgenerator.com/">Tabellen Generator</a></h3>
+</section>
+<section id="slide-orgba805c6">
+<h3 id="orgba805c6">Import von einfachen Excel Tabellen (.csv) in LaTeX</h3>
+<div class="outline-text-3" id="text-orgba805c6">
+</div>
+</section>
+<section id="slide-orgdc44820">
+<h4 id="orgdc44820">Excel Tabelle als CSV speichen</h4>
+</section>
+<section id="slide-orgefa3447">
+<h4 id="orgefa3447">CSV mit Package <a href="http://linorg.usp.br/CTAN/macros/latex/contrib/csvsimple/csvsimple.pdf">csvsimple</a> importieren</h4>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>[utf8]{<span style="color: #c678dd;">inputenc</span>}
+
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">array,booktabs</span>}
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">csvsimple</span>}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+<span style="color: #51afef;">\csvautobooktabular</span>[before reading=<span style="color: #51afef;">\inputencoding</span>{latin1},
+                    after reading=<span style="color: #51afef;">\inputencoding</span>{utf8}]{example.csv}
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org7697225">
+<h2 id="org7697225">Weitere Pakete</h2>
+<ul>
+<li><a href="http://linorg.usp.br/CTAN/macros/latex/contrib/xsim/doc/xsim_manual.pdf">XSIM</a> - Erstellen von Arbeitsblättern</li>
+<li><a href="http://linorg.usp.br/CTAN/graphics/pgf/base/doc/pgfmanual.pdf">TikZ</a> - Zeichnen von Bildern</li>
+<li><a href="http://linorg.usp.br/CTAN/graphics/pgf/contrib/pgfplots/doc/pgfplots.pdf">pgfplots</a> - Erstellen von Graphen und Diagrammen</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgdc2e8c4">
+<h2 id="orgdc2e8c4">Macros</h2>
+<div class="org-src-container">
+
+<pre  class="src src-latex"><code trim><span style="color: #51afef;">\documentclass</span>[a4paper]{<span style="color: #c678dd;">article</span>}
+<span style="color: #51afef;">\usepackage</span>{<span style="color: #c678dd;">color</span>} <span style="color: #5B6268;">% f&#252;r den command \color ben&#246;tigt</span>
+
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Command Name: meinCommandName</span>
+<span style="color: #5B6268;">% </span><span style="color: #5B6268;">Parameter: 2 (#1 = text, #2 = farbe)</span>
+<span style="color: #51afef;">\newcommand*</span>{<span style="color: #c678dd;">\meinCommandName</span>}[2]{<span style="color: #51afef;">\color</span>{#2}<span style="color: #51afef;">\textbf</span>{<span style="color: #51afef; font-weight: bold;">\textit</span><span style="font-weight: bold;">{</span><span style="color: #51afef; font-weight: bold; font-style: italic;">\underline</span><span style="font-weight: bold; font-style: italic;">{#1}</span>}}}
+
+<span style="color: #51afef;">\begin</span>{<span style="color: #c678dd;">document</span>}
+Hier f&#252;hre ich <span style="color: #51afef;">\meinCommandName</span>{mein cooles Macro aus}{blue}.
+<span style="color: #51afef;">\end</span>{<span style="color: #c678dd;">document</span>}
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<p> Created by with org </p>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
