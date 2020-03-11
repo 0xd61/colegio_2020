@@ -61,10 +61,10 @@ Schreibweise: x ⊕ y
 
 | *x* | *y* | *x ∨ y* | *¬x* | *(x ∨ y) ∧ ¬x* |
 |-----+-----+---------+------+----------------|
-| *0* | *0* |       0 |    1 |              1 |
-| *1* | *0* |       1 |    0 |              1 |
+| *0* | *0* |       0 |    1 |              0 |
+| *1* | *0* |       1 |    0 |              0 |
 | *0* | *1* |       1 |    1 |              1 |
-| *1* | *1* |       0 |    0 |              0 |
+| *1* | *1* |       1 |    0 |              0 |
 
 *** Achtung Klammern: ¬(x ∧ y) != ¬x ∧ ¬y
 
@@ -111,9 +111,6 @@ Genutzt um eine Zahl zu inkrementieren, wenn man nur Bits bis zur nächsten 0 ve
 #+BEGIN_SRC
 NOT 0111  (Dezimal 7)
   = 1000  (Dezimal 8)
-
-NOT 1011  (Dezimal 11)
-  = 1100  (Dezimal 12)
 
 NOT 10101011  (Dezimal 171)
   = 01010100  (Dezimal 84)
